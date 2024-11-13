@@ -1,0 +1,27 @@
+<!-- contacts/templates/contacts/contact_list.html -->
+<h1>Contact List</h1>
+<form method="GET">
+    <input type="text" name="q" value="{{ query }}" placeholder="Search by name or email">
+    <button type="submit">Search</button>
+</form>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Actions</th>
+    </tr>
+    {% for contact in contacts %}
+    <tr>
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.email }}</td>
+        <td>{{ contact.phone }}</td>
+        <td>{{ contact.address }}</td>
+        <td>
+            <a href="{% url 'contact_delete' contact.pk %}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'contact_add' %}">Add Contact</a>

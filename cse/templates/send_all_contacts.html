@@ -1,0 +1,9 @@
+<!-- contacts/templates/contacts/send_all_contacts.html -->
+<h1>Send All Contacts</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="recipient_email">Recipient Email:</label>
+    <input type="email" id="recipient_email" name="recipient_email" required>
+    <button type="submit">Send Contacts</button>
+</form>
+<a href="{% url 'contact_list' %}">Back to Contact List</a>
